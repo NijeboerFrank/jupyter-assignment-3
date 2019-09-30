@@ -15,3 +15,5 @@ attacks = "table_attack_twbooter.csv"
 attack_df = pd.read_csv(attacks, delimiter=";")
 attack_df["victim"] = attack_df["victim"].apply(remove_http)
 
+
+
