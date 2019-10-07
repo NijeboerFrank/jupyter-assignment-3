@@ -1,19 +1,20 @@
 import pandas as pd
 
+tcp_flags = {
+    '0x002': 'SYN',
+    '0x018': '(PSH, ACK)',
+    '0x010': 'ACK',
+    '0x012': '(SYN, ACK)',
+    '0x014': '(RST, ACK)',
+    '0x004': 'RST',
+    '0x011': '(FIN, ACK)',
+    '0x019': '(FIN, PSH, ACK)'
+}
 
-def remove_http(v):
-    if v.startswith("http://"):
-        return v.split("http://")[1]
-    elif v.startswith("https://"):
-        return v.split("https://")[1]
-    else:
-        return v
+df_file = "for_the_afternoon.csv"
 
+df = pd.read_csv(df_file)
 
-attacks = "table_attack_twbooter.csv"
-
-attack_df = pd.read_csv(attacks, delimiter=";")
-attack_df["victim"] = attack_df["victim"].apply(remove_http)
-
+df['TCP Flags'] = df['TCP Flags'].apply(tcp_flags.get)
 
 
