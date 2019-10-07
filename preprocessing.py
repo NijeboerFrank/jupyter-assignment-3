@@ -15,6 +15,12 @@ df_file = "for_the_afternoon.csv"
 
 df = pd.read_csv(df_file)
 
+
+def get_vendor(string: str):
+    return string.split("_")[0]
+
+
 df['TCP Flags'] = df['TCP Flags'].apply(tcp_flags.get)
+df['Vendor'] = df['Vendor'].apply(get_vendor)
 
 
