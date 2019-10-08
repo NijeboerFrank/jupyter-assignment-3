@@ -20,7 +20,15 @@ def get_vendor(string: str):
     return string.split("_")[0]
 
 
+def convert_to_int(to_convert):
+    try:
+        return int(to_convert)
+    except ValueError:
+        return to_convert
+
+
 df['TCP Flags'] = df['TCP Flags'].apply(tcp_flags.get)
 df['Vendor'] = df['Vendor'].apply(get_vendor)
-
+df['Source Port'] = df['Source Port'].apply(convert_to_int)
+df['Destination Port'] = df['Destination Port'].apply(convert_to_int)
 
