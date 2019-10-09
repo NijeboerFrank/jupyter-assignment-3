@@ -13,22 +13,33 @@ tcp_flags = {
 
 df_file = "for_the_afternoon.csv"
 
-df = pd.read_csv(df_file)
+df = pd.read_csv(df_file, index_col="No.")
 
 
 def get_vendor(string: str):
+    """
+    Function that returns the vendor from a string that Wireshark generates from the MAC address.
+
+    :param string: String representing the vendor from WireShark.
+    :return: Vendor name without numbers
+    """
     return string.split("_")[0]
 
 
-def convert_to_int(to_convert):
-    try:
-        return int(to_convert)
-    except ValueError:
-        return to_convert
+# def convert_to_int(to_convert):
+#     """
+#     Function that converts a string to an integer
+#     :param to_convert:
+#     :return:
+#     """
+#     try:
+#         return str(to_convert)
+#     except ValueError:
+#         return to_convert
 
 
 df['TCP Flags'] = df['TCP Flags'].apply(tcp_flags.get)
 df['Vendor'] = df['Vendor'].apply(get_vendor)
-df['Source Port'] = df['Source Port'].apply(convert_to_int)
-df['Destination Port'] = df['Destination Port'].apply(convert_to_int)
+# df['Source Port'] = df['Source Port'].apply(convert_to_int)
+# df['Destination Port'] = df['Destination Port'].apply(convert_to_int)
 
