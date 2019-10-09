@@ -4,6 +4,9 @@
 Loek van der Gugten 1975331
 Reinier de Ridder   1701134
 Frank Nijeboer      2011972
+Jos Bartels         1941224
+Dionne Kingma       2419874
+Hanneke Verschoor   1954334
 ```
 
 Our submission of the Third Assignment for Digital Forensics. The raw data can be found in the .csv files found in this repository. Some preprocessing is done in preprocessing.py. 
