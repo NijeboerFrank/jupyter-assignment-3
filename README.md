@@ -15,3 +15,7 @@ The main Jupyter Notebook can be found in the Assignment3.ipynb file. To read th
 This project requires you to have installed the Jupyter Notebook, pandas and matplotlib python modules. We have installed these by using [pipenv](https://pypi.org/project/pipenv/). To create a virtual environment and install the dependencies in this environment, simply install pipenv and run ```pipenv install``` in this directory. See the [pipenv pypi](https://pypi.org/project/pipenv/) page for more information on how to use pipenv. 
 
 You can also just run the jupyter notebook commands if these are already installed on your machine. 
+
+For the Bibliography you also have to run ```python -m cite2c.install```
+
+For the widgets you also have to run ```jupyter nbextension enable --py widgetsnbextension```
